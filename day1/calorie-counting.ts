@@ -1,29 +1,8 @@
-import fs from 'fs';
-import {
-  share,
-  fromEvent,
-  scan,
-  takeUntil,
-  filter,
-  bufferWhen,
-  map,
-  takeLast,
-  reduce,
-  distinct,
-  toArray,
-  mergeMap,
-  take,
-} from 'rxjs';
 import path from 'path';
-import readline from 'readline';
+import { bufferWhen, distinct, filter, map, mergeMap, reduce, scan, take, takeLast, toArray } from 'rxjs';
+import { getInputStream } from '../common';
 
-const rl = readline.createInterface({
-  input: fs.createReadStream(path.resolve(`${__dirname}/input.txt`)),
-  crlfDelay: Infinity,
-});
-
-const close$ = fromEvent(rl, 'close');
-const lines$ = fromEvent(rl, 'line').pipe(share(), takeUntil(close$));
+const lines$ = getInputStream(path.resolve(`${__dirname}/input.txt`));
 
 const calories$ = lines$.pipe(
   filter((value) => value !== ''),
@@ -51,11 +30,9 @@ const topThreeCombinedCalories$ = calories$.pipe(
 );
 
 mostCalories$.subscribe({
-  next: (calories) =>
-    console.log(`The elf with the most calories has ${calories} calories`),
+  next: (calories) => console.log(`The elf with the most calories has ${calories} calories`),
 });
 
 topThreeCombinedCalories$.subscribe({
-  next: (calories) =>
-    console.log(`The top three elves are carrying ${calories} calories `),
+  next: (calories) => console.log(`The top three elves are carrying ${calories} calories `),
 });
