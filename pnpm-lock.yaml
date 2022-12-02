@@ -12,11 +12,13 @@ specifiers:
   immutable: ^4.1.0
   rxjs: ^7.5.7
   ts-node: ^10.9.1
+  ts-pattern: ^4.0.6
   typescript: ^4.9.3
 
 dependencies:
   immutable: 4.1.0
   rxjs: 7.5.7
+  ts-pattern: 4.0.6
 
 devDependencies:
   '@types/node': 18.11.10
@@ -1531,6 +1533,10 @@ packages:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
+
+  /ts-pattern/4.0.6:
+    resolution: {integrity: sha512-sFHQYD4KoysBi7e7a2mzDPvRBeqA4w+vEyRE+P5MU9VLq8eEYxgKCgD9RNEAT+itGRWUTYN+hry94GDPLb1/Yw==}
+    dev: false
 
   /tsconfig-paths/3.14.1:
     resolution: {integrity: sha512-fxDhWnFSLt3VuTwtvJt5fpwxBHg5AdKWMsgcPOOIilyjymcYVZoCQF8fvFRezCNfblEXmi+PcM1eYHeOAgXCOQ==}
