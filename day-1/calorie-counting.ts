@@ -1,6 +1,6 @@
 import path from 'path';
 import { bufferWhen, distinct, filter, map, mergeMap, reduce, scan, take, takeLast, toArray } from 'rxjs';
-import { getInputStream } from '../common';
+import { getInputStream } from '../common/get-input-stream';
 
 const lines$ = getInputStream(path.resolve(`${__dirname}/input.txt`));
 
